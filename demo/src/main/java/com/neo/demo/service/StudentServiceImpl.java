@@ -15,8 +15,8 @@ public class StudentServiceImpl implements StudentService {
 	private StudentRepository studentRepository;
 
 	@Override
-	public Student getStudent(int i) {
-		Optional<Student> optional = studentRepository.findById(i);
+	public Student getStudent(int id) {
+		Optional<Student> optional = studentRepository.findById(id);
 		if(optional.isEmpty()) {
 			return null;
 		}

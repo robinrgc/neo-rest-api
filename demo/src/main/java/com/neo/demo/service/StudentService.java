@@ -4,7 +4,7 @@ import com.neo.demo.entity.Student;
 
 public interface StudentService {
 
-	Student getStudent(int i);
+	Student getStudent(int id);
 
 	int addStudent(Student student);
 
