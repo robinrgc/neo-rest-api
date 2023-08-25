@@ -23,11 +23,12 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public Student getStudent(int id) {
-		Optional<Student> optional = studentRepository.findById(id);
-		if(optional.isEmpty()) {
-			return null;
-		}
-		return optional.get();
+//		Optional<Student> optional = studentRepository.findById(id);
+//		if(optional.isEmpty()) {
+//			return null;
+//		}
+//		return optional.get();
+		return studentRepository.findStudent(id);
 	}
 
 	@Override
@@ -41,21 +42,23 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public void updateStudent(Student student) {
-		studentRepository.save(student);
+//		studentRepository.save(student);
+		studentRepository.updateStudentName(student.getId(), student.getName());
 		
 	}
 
 	@Override
 	public void deleteStudent(int id) {
-		Optional<Student> optional = studentRepository.findById(id);
-		if(!optional.isEmpty()) {
-			studentRepository.delete(optional.get());
-		}
+//		Optional<Student> optional = studentRepository.findById(id);
+//		if(!optional.isEmpty()) {
+//			studentRepository.delete(optional.get());
+//		}
+		studentRepository.deleteStudent(id);
 	}
 
 	@Override
 	public List<Student> getAllStudents() {
-		return studentRepository.findAll();
+		return studentRepository.findStudents();
 	}
 
 	@Override
